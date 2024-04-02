@@ -1,0 +1,10 @@
+# Rust
+/target
+# Nix
+/result
+# direnv
+/.direnv/
+# bacon
+/.bacon-locations
+# pre-commit-hooks
+/.pre-commit-config.yaml
