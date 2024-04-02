@@ -1,12 +1,15 @@
-{rustPlatform}: let
-  pname = "sudoku-solver";
-  version = "0.0.1";
+{
+  lib,
+  rustPlatform,
+}: let
+  cargoToml = (lib.importTOML ./Cargo.toml).package;
 in
   rustPlatform.buildRustPackage {
-    inherit pname version;
+    inherit (cargoToml) version;
+    pname = cargoToml.name;
     src = builtins.path {
+      inherit (cargoToml) name;
       path = ./.;
-      name = pname;
     };
     cargoLock.lockFile = ./Cargo.lock;
     useNextest = true;
