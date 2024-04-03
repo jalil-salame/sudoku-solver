@@ -1,6 +1,6 @@
 [package]
 name = "sudoku-solver"
-version = "0.0.2-dev"
+version = "0.0.2"
 edition = "2021"
 
 [dependencies]
