@@ -1,0 +1,31 @@
+name: Project CI
+on:
+  push: 
+    path:
+      # This workflow file
+      - ".github/workflows/ci.yml"
+      # Rust code
+      - "Cargo.lock"
+      - "Cargo.toml"
+      - "**/*.rs"
+      # Nix code
+      - "flake.lock"
+      - "**/*.nix"
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@v10
+      - uses: DeterminateSystems/magic-nix-cache-action@v4
+      - name: Build and Test
+        run: nix build --print-build-logs .#
+  check:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@v10
+      - uses: DeterminateSystems/magic-nix-cache-action@v4
+      - name: Check Project
+        run: nix flake check --print-build-logs
