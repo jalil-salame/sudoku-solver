@@ -7,3 +7,10 @@ edition = "2021"
 name = "libsolver"
 
 [dependencies]
+
+[dev-dependencies]
+iai-callgrind = "0.10.2"
+
+[[bench]]
+name = "dfs-iai"
+harness = false
