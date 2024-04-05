@@ -51,8 +51,9 @@
       default = pkgs.mkShellNoCC {
         inherit (self.checks.${system}.pre-commit-check) shellHook;
         nativeBuildInputs = with pkgs; [alejandra cargo-flamegraph];
-        IAI_CALLGRIND_RUNNER = "${self.packages.${system}.iai-callgrind-runner}/bin/iai-callgrind-runner";
         SUDOKU17 = "${self.packages.${system}.sudoku17}";
+        IAI_CALLGRIND_RUNNER = "${self.packages.${system}.iai-callgrind-runner}/bin/iai-callgrind-runner";
+        CARGO_PROFILE_RELEASE_DEBUG = true; # enable debuginfo for cargo-flamegraph
       };
     });
   };
