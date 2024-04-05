@@ -4,6 +4,30 @@ use std::{
     ops::{Index, IndexMut},
 };
 
+pub trait Solver {
+    type Error: std::fmt::Debug;
+
+    /// Solve a [`Sudoku`].
+    ///
+    /// # Panics
+    ///
+    /// This function will panic if no solution is found. If you want to catch this error, use
+    /// [`try_solve`] instead.
+    ///
+    /// [`try_solve`]: Solver::try_solve
+    fn solve(&self, sudoku: Sudoku) -> SolvedSudoku {
+        self.try_solve(sudoku).expect("couldn't find a solution")
+    }
+
+    /// Solve a [`Sudoku`]
+    ///
+    /// # Errors
+    ///
+    /// This function will return an error if the [`Solver`] encounters an error trying to solve
+    /// this [`Sudoku`]. See the solver documentation for possible errors.
+    fn try_solve(&self, sudoku: Sudoku) -> Result<SolvedSudoku, Self::Error>;
+}
+
 #[derive(Debug, Clone)]
 pub struct SudokuValues(u8);
 
