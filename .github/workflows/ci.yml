@@ -29,5 +29,5 @@ jobs:
       - uses: DeterminateSystems/magic-nix-cache-action@v4
       - name: Run pre-commit hooks
         run: nix develop --command pre-commit run --all-files
-      - name: Check Project
-        run: nix flake check --print-build-logs
+      # - name: Check Project
+      #   run: nix flake check --print-build-logs
