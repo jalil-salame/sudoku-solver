@@ -48,21 +48,20 @@ impl Solver for IterativeDFS {
         let mut state: Vec<([usize; 2], SudokuValues)> = Vec::with_capacity(empty_cells.len());
         // All values that affect the cell at `ix`
         fn all_affecting(sudoku: &Sudoku, ix: [usize; 2]) -> HashSet<SudokuValue> {
-            let mut row = sudoku
+            let row = sudoku
                 .row(Sudoku::row_from_ix(ix))
-                .filter_map(|cell| SudokuValue::try_from(*cell).ok())
-                .collect::<HashSet<_>>();
+                .filter_map(|cell| SudokuValue::try_from(*cell).ok());
             let column = sudoku
                 .column(Sudoku::column_from_ix(ix))
-                .filter_map(|cell| SudokuValue::try_from(*cell).ok())
-                .collect::<HashSet<_>>();
+                .filter_map(|cell| SudokuValue::try_from(*cell).ok());
             let cell = sudoku
                 .cell(Sudoku::cell_from_ix(ix))
-                .filter_map(|cell| SudokuValue::try_from(*cell).ok())
-                .collect::<HashSet<_>>();
-            row.extend(column);
-            row.extend(cell);
-            row
+                .filter_map(|cell| SudokuValue::try_from(*cell).ok());
+            let mut all = HashSet::with_capacity(9);
+            all.extend(row);
+            all.extend(column);
+            all.extend(cell);
+            all
         }
         // Main solver
         'main: loop {
