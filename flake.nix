@@ -20,10 +20,11 @@
         });
   in {
     packages = forEachSystem ({pkgs, ...}: let
+      iai-callgrind-runner = pkgs.callPackage ./iai-callgrind-runner.nix {};
       sudoku-solver = pkgs.callPackage ./default.nix {};
       sudoku17 = pkgs.callPackage ./sudoku17.nix {};
     in {
-      inherit sudoku-solver sudoku17;
+      inherit sudoku-solver sudoku17 iai-callgrind-runner;
       default = sudoku-solver;
     });
     checks = forEachSystem ({
@@ -50,6 +51,7 @@
       default = pkgs.mkShellNoCC {
         inherit (self.checks.${system}.pre-commit-check) shellHook;
         nativeBuildInputs = with pkgs; [alejandra];
+        IAI_CALLGRIND_RUNNER = "${self.packages.${system}.iai-callgrind-runner}/bin/iai-callgrind-runner";
         SUDOKU17 = "${self.packages.${system}.sudoku17}";
       };
     });
