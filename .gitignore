@@ -8,3 +8,4 @@
 /.bacon-locations
 # pre-commit-hooks
 /.pre-commit-config.yaml
+/perf.data*
