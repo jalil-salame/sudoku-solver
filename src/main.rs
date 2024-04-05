@@ -4,9 +4,7 @@ use std::{
     process::ExitCode,
 };
 
-use crate::solver::{Solver, Sudoku};
-
-mod solver;
+use libsolver::solver::{self, Solver, Sudoku};
 
 /// Program usage messaeg
 fn usage(prog: &str) -> String {
