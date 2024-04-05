@@ -4,7 +4,7 @@ use std::{
     process::ExitCode,
 };
 
-use crate::solver::Sudoku;
+use crate::solver::{Solver, Sudoku};
 
 mod solver;
 
@@ -102,7 +102,20 @@ fn main() -> ExitCode {
     );
     eprintln!("[INFO]: Total time {}s", total.as_secs_f32());
 
-    // TODO: Solve sudokus
+    let start = std::time::Instant::now();
+    let _solved: Vec<_> = sudokus
+        .into_iter()
+        .enumerate()
+        .map(|(ix, sudoku)| {
+            eprint!("[INFO]: Solving {}/{count}\r", ix + 1);
+            solver::IterativeDFS.solve(sudoku)
+        })
+        .collect();
+    let solving = start.elapsed().as_secs_f32();
+    eprintln!(
+        "[INFO]: Solved {count} sudokus in {solving:.3}s, that is {:.3}ms per sudoku",
+        1000f32 * solving / count as f32
+    );
 
     // Done!
     ExitCode::SUCCESS

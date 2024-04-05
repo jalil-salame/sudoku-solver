@@ -1,5 +1,6 @@
 #![allow(dead_code)]
 use std::{
+    collections::HashSet,
     num::NonZeroU8,
     ops::{Index, IndexMut},
 };
@@ -26,6 +27,96 @@ pub trait Solver {
     /// This function will return an error if the [`Solver`] encounters an error trying to solve
     /// this [`Sudoku`]. See the solver documentation for possible errors.
     fn try_solve(&self, sudoku: Sudoku) -> Result<SolvedSudoku, Self::Error>;
+}
+
+#[derive(Debug, Clone, Copy)]
+pub struct IterativeDFS;
+
+#[derive(Debug)]
+pub struct ExhaustedAllPossibilities(pub Sudoku);
+
+impl Solver for IterativeDFS {
+    type Error = ExhaustedAllPossibilities;
+
+    fn try_solve(&self, mut sudoku: Sudoku) -> Result<SolvedSudoku, Self::Error> {
+        // Get the indexes of all empty cells
+        let mut empty_cells: Vec<_> = sudoku
+            .indexed_values()
+            .filter_map(|(ix, cell)| cell.is_empty().then_some(ix))
+            .collect();
+        // Keeps track of the cells that have been set, and the value they were set to
+        let mut state: Vec<([usize; 2], SudokuValues)> = Vec::with_capacity(empty_cells.len());
+        // All values that affect the cell at `ix`
+        fn all_affecting(sudoku: &Sudoku, ix: [usize; 2]) -> HashSet<SudokuValue> {
+            let mut row = sudoku
+                .row(Sudoku::row_from_ix(ix))
+                .filter_map(|cell| SudokuValue::try_from(*cell).ok())
+                .collect::<HashSet<_>>();
+            let column = sudoku
+                .column(Sudoku::column_from_ix(ix))
+                .filter_map(|cell| SudokuValue::try_from(*cell).ok())
+                .collect::<HashSet<_>>();
+            let cell = sudoku
+                .cell(Sudoku::cell_from_ix(ix))
+                .filter_map(|cell| SudokuValue::try_from(*cell).ok())
+                .collect::<HashSet<_>>();
+            row.extend(column);
+            row.extend(cell);
+            row
+        }
+        // Main solver
+        'main: loop {
+            // println!("state={}", {
+            //     let mut s = String::with_capacity(state.len() * 2);
+            //     for (_, v) in state.iter() {
+            //         write!(s, "{},", v.0).unwrap();
+            //     }
+            //     s
+            // });
+            // Fetch the empty cell we will try to solve
+            if let Some(ix) = empty_cells.pop() {
+                // Fetch current values that affect the current empty cell
+                let all = all_affecting(&sudoku, ix);
+                // Find the first value that is not contained in `all`
+                if let Some(val) = SudokuValue::all_values().find(|v| !all.contains(v)) {
+                    // Save the state of the cell
+                    state.push((ix, val.into_iter()));
+                    sudoku[ix] = SudokuCell::filled(val);
+                    // Go back to the top
+                    continue 'main;
+                }
+                // No values are valid for this position. Set the current cell to empty and push it
+                // back to the stack of empty cells.
+                sudoku[ix] = SudokuCell::empty();
+                empty_cells.push(ix);
+            } else {
+                // There are no more empty cells remaining. We have solved the Sudoku!
+                return Ok(
+                    SolvedSudoku::try_from(sudoku).expect("sudoku was solved by IterativeDFS")
+                );
+            }
+            // We failed to find a valid value for the current cell; backtrack to the previous cell
+            while let Some((ix, mut values)) = state.pop() {
+                // Set the current cell to empty, the value we set previously was wrong
+                sudoku[ix] = SudokuCell::empty();
+                // Fetch current values that affect the current empty cell
+                let all = all_affecting(&sudoku, ix);
+                // From the values we have yet to try, find the first value which is also valid
+                if let Some(val) = values.find(|v| !all.contains(v)) {
+                    // We found another candidate value, save current state and continue solving
+                    state.push((ix, val.into_iter()));
+                    sudoku[ix] = SudokuCell::filled(val);
+                    continue 'main;
+                }
+                // No other values are valid for this position; continue backtracking
+                sudoku[ix] = SudokuCell::empty();
+                empty_cells.push(ix);
+            }
+            // We checked all values exhaustively. No more solutions are available (or we got the
+            // implementation wrong).
+            return Err(ExhaustedAllPossibilities(sudoku));
+        }
+    }
 }
 
 #[derive(Debug, Clone)]
@@ -567,7 +658,10 @@ impl std::fmt::Debug for Sudoku {
 
 #[cfg(test)]
 mod test {
-    use super::Sudoku;
+    use super::{IterativeDFS, Solver, Sudoku};
+
+    const TEST_SUDOKU: &[u8; 81] =
+        b".......1.4.........2...........5.4.7..8...3....1.9....3..4..2...5.1........8.6...";
 
     const TEST_SUDOKUS: &[&[u8; 81]; 10] = &[
         b".......1.4.........2...........5.4.7..8...3....1.9....3..4..2...5.1........8.6...",
@@ -589,5 +683,12 @@ mod test {
             let encoded = format!("{decoded:?}");
             assert_eq!(sudoku, encoded.as_bytes())
         }
+    }
+
+    #[test]
+    fn solve_sudoku_iterative_dfs() {
+        let sudoku = Sudoku::from_line(TEST_SUDOKU);
+        let solver = IterativeDFS;
+        solver.solve(sudoku);
     }
 }

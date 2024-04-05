@@ -41,6 +41,12 @@ $ cargo run -- -
 [INFO]: Total time 0.000063548s
 ```
 
+You can run the tests through cargo. **Warning:** the tests are very slow to run so we recommend running them in release mode:
+
+```console
+$ cargo test --release
+```
+
 ### Testing data
 
 I recommend using Abhinav Sarkar's great [set of 17 clues sudokus][4]. You can obtain it like so:
