@@ -1,7 +1,5 @@
 use iai_callgrind::{library_benchmark, library_benchmark_group, main};
-use sudoku_solver::solver::IterativeDFS;
-use sudoku_solver::solver::Solver;
-use sudoku_solver::solver::Sudoku;
+use libsolver::solver::{IterativeDFS, Solver, Sudoku};
 
 const SUDOKU: &[u8; 81] =
     b".......1.4.........2...........5.4.7..8...3....1.9....3..4..2...5.1........8.6...";
