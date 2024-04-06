@@ -1,6 +1,5 @@
 #![allow(dead_code)]
 use std::{
-    collections::BTreeSet,
     num::NonZeroU8,
     ops::{Index, IndexMut},
 };
@@ -47,7 +46,7 @@ impl Solver for IterativeDFS {
         // Keeps track of the cells that have been set, and the value they were set to
         let mut state: Vec<([usize; 2], SudokuValues)> = Vec::with_capacity(empty_cells.len());
         // All values that affect the cell at `ix`
-        fn all_affecting(sudoku: &Sudoku, ix: [usize; 2]) -> BTreeSet<SudokuValue> {
+        fn all_affecting(sudoku: &Sudoku, ix: [usize; 2]) -> SudokuValueSet {
             let row = sudoku
                 .row(Sudoku::row_from_ix(ix))
                 .filter_map(|cell| SudokuValue::try_from(*cell).ok());
@@ -57,7 +56,7 @@ impl Solver for IterativeDFS {
             let cell = sudoku
                 .cell(Sudoku::cell_from_ix(ix))
                 .filter_map(|cell| SudokuValue::try_from(*cell).ok());
-            let mut all = BTreeSet::new();
+            let mut all = SudokuValueSet::new();
             all.extend(row);
             all.extend(column);
             all.extend(cell);
@@ -114,6 +113,37 @@ impl Solver for IterativeDFS {
             // We checked all values exhaustively. No more solutions are available (or we got the
             // implementation wrong).
             return Err(ExhaustedAllPossibilities(sudoku));
+        }
+    }
+}
+
+#[derive(Debug, Clone)]
+struct SudokuValueSet([bool; 9]);
+
+impl SudokuValueSet {
+    pub fn new() -> Self {
+        Self([false; 9])
+    }
+
+    pub fn insert(&mut self, val: SudokuValue) -> bool {
+        debug_assert!((1..=9).contains(&val.0.get()));
+        let ix = usize::from(val.0.get()) - 1;
+        let prev = self.0[ix];
+        self.0[ix] = true;
+        !prev
+    }
+
+    pub fn contains(&self, val: &SudokuValue) -> bool {
+        debug_assert!((1..=9).contains(&val.0.get()));
+        let ix = usize::from(val.0.get()) - 1;
+        self.0[ix]
+    }
+}
+
+impl Extend<SudokuValue> for SudokuValueSet {
+    fn extend<T: IntoIterator<Item = SudokuValue>>(&mut self, iter: T) {
+        for val in iter {
+            self.insert(val);
         }
     }
 }
