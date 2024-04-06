@@ -43,43 +43,25 @@ impl Solver for IterativeDFS {
             .indexed_values()
             .filter_map(|(ix, cell)| cell.is_empty().then_some(ix))
             .collect();
+        // Sort by number of affecting values
+        empty_cells.sort_unstable_by_key(|&ix| sudoku.all_affecting(ix).len());
         // Keeps track of the cells that have been set, and the value they were set to
         let mut state: Vec<([usize; 2], SudokuValues)> = Vec::with_capacity(empty_cells.len());
-        // All values that affect the cell at `ix`
-        fn all_affecting(sudoku: &Sudoku, ix: [usize; 2]) -> SudokuValueSet {
-            let row = sudoku
-                .row(Sudoku::row_from_ix(ix))
-                .filter_map(|cell| SudokuValue::try_from(*cell).ok());
-            let column = sudoku
-                .column(Sudoku::column_from_ix(ix))
-                .filter_map(|cell| SudokuValue::try_from(*cell).ok());
-            let cell = sudoku
-                .cell(Sudoku::cell_from_ix(ix))
-                .filter_map(|cell| SudokuValue::try_from(*cell).ok());
-            let mut all = SudokuValueSet::new();
-            all.extend(row);
-            all.extend(column);
-            all.extend(cell);
-            all
-        }
         // Main solver
         'main: loop {
-            // println!("state={}", {
-            //     let mut s = String::with_capacity(state.len() * 2);
-            //     for (_, v) in state.iter() {
-            //         write!(s, "{},", v.0).unwrap();
-            //     }
-            //     s
-            // });
             // Fetch the empty cell we will try to solve
             if let Some(ix) = empty_cells.pop() {
                 // Fetch current values that affect the current empty cell
-                let all = all_affecting(&sudoku, ix);
+                let all = sudoku.all_affecting(ix);
                 // Find the first value that is not contained in `all`
                 if let Some(val) = SudokuValue::all_values().find(|v| !all.contains(v)) {
                     // Save the state of the cell
                     state.push((ix, val.into_iter()));
                     sudoku[ix] = SudokuCell::filled(val);
+                    if all.len() < 8 {
+                        // Sort by number of affecting values
+                        empty_cells.sort_unstable_by_key(|&ix| sudoku.all_affecting(ix).len());
+                    }
                     // Go back to the top
                     continue 'main;
                 }
@@ -98,7 +80,7 @@ impl Solver for IterativeDFS {
                 // Set the current cell to empty, the value we set previously was wrong
                 sudoku[ix] = SudokuCell::empty();
                 // Fetch current values that affect the current empty cell
-                let all = all_affecting(&sudoku, ix);
+                let all = sudoku.all_affecting(ix);
                 // From the values we have yet to try, find the first value which is also valid
                 if let Some(val) = values.find(|v| !all.contains(v)) {
                     // We found another candidate value, save current state and continue solving
@@ -137,6 +119,10 @@ impl SudokuValueSet {
         debug_assert!((1..=9).contains(&val.0.get()));
         let ix = usize::from(val.0.get()) - 1;
         self.0[ix]
+    }
+
+    pub fn len(&self) -> usize {
+        self.0.iter().copied().filter(|&v| v).count()
     }
 }
 
@@ -382,6 +368,23 @@ impl Sudoku {
             }
         }
         Self(sudoku)
+    }
+    // All values that affect the cell at `ix`
+    fn all_affecting(&self, ix: [usize; 2]) -> SudokuValueSet {
+        let row = self
+            .row(Sudoku::row_from_ix(ix))
+            .filter_map(|cell| SudokuValue::try_from(*cell).ok());
+        let column = self
+            .column(Sudoku::column_from_ix(ix))
+            .filter_map(|cell| SudokuValue::try_from(*cell).ok());
+        let cell = self
+            .cell(Sudoku::cell_from_ix(ix))
+            .filter_map(|cell| SudokuValue::try_from(*cell).ok());
+        let mut all = SudokuValueSet::new();
+        all.extend(row);
+        all.extend(column);
+        all.extend(cell);
+        all
     }
 
     pub fn filled(&self) -> bool {
