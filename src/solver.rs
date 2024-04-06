@@ -1,6 +1,6 @@
 #![allow(dead_code)]
 use std::{
-    collections::HashSet,
+    collections::BTreeSet,
     num::NonZeroU8,
     ops::{Index, IndexMut},
 };
@@ -47,7 +47,7 @@ impl Solver for IterativeDFS {
         // Keeps track of the cells that have been set, and the value they were set to
         let mut state: Vec<([usize; 2], SudokuValues)> = Vec::with_capacity(empty_cells.len());
         // All values that affect the cell at `ix`
-        fn all_affecting(sudoku: &Sudoku, ix: [usize; 2]) -> HashSet<SudokuValue> {
+        fn all_affecting(sudoku: &Sudoku, ix: [usize; 2]) -> BTreeSet<SudokuValue> {
             let row = sudoku
                 .row(Sudoku::row_from_ix(ix))
                 .filter_map(|cell| SudokuValue::try_from(*cell).ok());
@@ -57,7 +57,7 @@ impl Solver for IterativeDFS {
             let cell = sudoku
                 .cell(Sudoku::cell_from_ix(ix))
                 .filter_map(|cell| SudokuValue::try_from(*cell).ok());
-            let mut all = HashSet::with_capacity(9);
+            let mut all = BTreeSet::new();
             all.extend(row);
             all.extend(column);
             all.extend(cell);
@@ -139,7 +139,7 @@ impl Iterator for SudokuValues {
 }
 
 #[repr(transparent)]
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct SudokuValue(NonZeroU8);
 
 impl SudokuValue {
@@ -149,7 +149,11 @@ impl SudokuValue {
             .then_some(SudokuValue(NonZeroU8::new(val)?))
     }
 
+    /// # Safety
+    ///
+    /// Must be a number in the 1..=9 range
     pub unsafe fn new_unchecked(val: u8) -> Self {
+        debug_assert!((1..=9).contains(&val));
         SudokuValue(NonZeroU8::new_unchecked(val))
     }
 
