@@ -1,0 +1,36 @@
+runs = [
+	{ rev = "fd7a0574" },
+	{ rev = "53f8f6cb" },
+	{ rev = "04610b63" },
+	{ rev = "c3d700c2" },
+	{ rev = "68ae094f" },
+]
+
+[[benches]]
+name = "Solve 10"
+command = [
+	"sh",
+	"-c",
+	"head $SUDOKU17 | cargo --frozen --quiet run --release -- - 2>&1 | tee run.log",
+]
+output = "run.log"
+
+[[benches]]
+name = "iai"
+command = ["cargo", "--frozen", "--quiet", "bench"]
+output = "target/iai/sudoku-solver/dfs_iai/solve_sudoku_group/solve_sudoku.first"
+
+[[benches]]
+name = "flamegraph"
+command = [
+	"cargo",
+	"--frozen",
+	"--quiet",
+	"flamegraph",
+	"--deterministic",
+	"--unit-test",
+	"libsolver",
+	"--",
+	"solver::test::solve_sudoku_iterative_dfs",
+]
+output = "flamegraph.svg"

@@ -50,7 +50,12 @@
     }: {
       default = pkgs.mkShellNoCC {
         inherit (self.checks.${system}.pre-commit-check) shellHook;
-        nativeBuildInputs = with pkgs; [alejandra cargo-flamegraph];
+        nativeBuildInputs = with pkgs; [
+          alejandra
+          cargo-flamegraph
+          valgrind-light
+          (python312.withPackages (ps: with ps; [jinja2 click toml types-toml]))
+        ];
         SUDOKU17 = "${self.packages.${system}.sudoku17}";
         IAI_CALLGRIND_RUNNER = "${self.packages.${system}.iai-callgrind-runner}/bin/iai-callgrind-runner";
         CARGO_PROFILE_RELEASE_DEBUG = true; # enable debuginfo for cargo-flamegraph
