@@ -1,0 +1,5 @@
+[INFO]: Reading the file took 0.001ms
+[INFO]: Parsing the 10 Sudokus took 0.002ms
+        that is 0.225us per sudoku
+[INFO]: Total time 0.000009247s
+[INFO]: Solving 1/10[INFO]: Solving 2/10[INFO]: Solving 3/10[INFO]: Solving 4/10[INFO]: Solving 5/10[INFO]: Solving 6/10[INFO]: Solving 7/10[INFO]: Solving 8/10[INFO]: Solving 9/10[INFO]: Solving 10/10[INFO]: Solved 10 sudokus in 40.468s, that is 4046.837ms per sudoku

@@ -1,0 +1,27 @@
+==63976== Callgrind, a call-graph generating cache profiler
+==63976== Copyright (C) 2002-2017, and GNU GPL'd, by Josef Weidendorfer et al.
+==63976== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==63976== Command: /tmp/bench._bdec7b_/target/release/deps/dfs_iai-6ca19a207c52434a --iai-run solve_sudoku_group 0 0 dfs_iai::solve_sudoku_group::solve_sudoku
+==63976== Parent PID: 63973
+==63976== 
+--63976-- warning: L3 cache found, using its data for the LL simulation.
+==63976== For interactive control, run 'callgrind_control -h'.
+==63976== 
+==63976== Events    : Ir Dr Dw I1mr D1mr D1mw ILmr DLmr DLmw
+==63976== Collected : 11772512 1937524 759378 250 1 60 247 0 43
+==63976== 
+==63976== I   refs:      11,772,512
+==63976== I1  misses:           250
+==63976== LLi misses:           247
+==63976== I1  miss rate:       0.00%
+==63976== LLi miss rate:       0.00%
+==63976== 
+==63976== D   refs:       2,696,902  (1,937,524 rd + 759,378 wr)
+==63976== D1  misses:            61  (        1 rd +      60 wr)
+==63976== LLd misses:            43  (        0 rd +      43 wr)
+==63976== D1  miss rate:        0.0% (      0.0%   +     0.0%  )
+==63976== LLd miss rate:        0.0% (      0.0%   +     0.0%  )
+==63976== 
+==63976== LL refs:              311  (      251 rd +      60 wr)
+==63976== LL misses:            290  (      247 rd +      43 wr)
+==63976== LL miss rate:         0.0% (      0.0%   +     0.0%  )

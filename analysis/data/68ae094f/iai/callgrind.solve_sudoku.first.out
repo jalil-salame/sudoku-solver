@@ -1,0 +1,3459 @@
+# callgrind format
+version: 1
+creator: callgrind-3.22.0
+pid: 63976
+cmd:  /tmp/bench._bdec7b_/target/release/deps/dfs_iai-6ca19a207c52434a --iai-run solve_sudoku_group 0 0 dfs_iai::solve_sudoku_group::solve_sudoku
+part: 1
+
+
+desc: I1 cache: 32768 B, 64 B, 8-way associative
+desc: D1 cache: 32768 B, 64 B, 8-way associative
+desc: LL cache: 8388608 B, 64 B, 16-way associative
+
+desc: Timerange: Basic block 0 - 2638122
+desc: Trigger: Program termination
+
+positions: line
+events: Ir Dr Dw I1mr D1mr D1mw ILmr DLmr DLmw
+summary: 11772512 1937524 759378 250 1 60 247 0 43
+
+
+ob=/nix/store/ddwyrxif62r8n6xclvskjyy6szdhvj60-glibc-2.39-5/lib/ld-linux-x86-64.so.2
+fl=???
+fn=0x000000000001b7d0
+cob=/tmp/bench._bdec7b_/target/release/deps/dfs_iai-6ca19a207c52434a
+cfi=???
+cfn=(below main)
+calls=1 0 
+0 11772512 1937524 759378 250 1 60 247 0 43
+
+ob=/tmp/bench._bdec7b_/target/release/deps/dfs_iai-6ca19a207c52434a
+fl=/tmp/bench._bdec7b_/benches/dfs-iai.rs
+fn=dfs_iai::solve_sudoku::first
+cfn=iai_callgrind::bench::solve_sudoku
+calls=1 9 
+7 11772512 1937524 759378 250 1 60 247 0 43
+
+fn=iai_callgrind::bench::solve_sudoku
+9 2 0 0 1 0 0 1
+fi=/tmp/bench._bdec7b_/src/solver.rs
+19 3 1 1 1 0 0 1
+cfn=<libsolver::solver::IterativeDFS as libsolver::solver::Solver>::try_solve
+calls=1 40 
+19 11772490 1937515 759371 247 1 60 244 0 43
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/result.rs
+1028 2 1
+1029 13 6 6 1 0 0 1
+fe=/tmp/bench._bdec7b_/benches/dfs-iai.rs
+11 2 1
+
+fl=/home/jalil/.local/share/cargo/registry/src/index.crates.io-6f17d22bba15001f/iai-callgrind-0.10.2/src/macros.rs
+fn=dfs_iai::main
+cfn=dfs_iai::solve_sudoku_group::run
+calls=1 794 
+370 11772512 1937524 759378 250 1 60 247 0 43
+
+fn=dfs_iai::solve_sudoku_group::run
+cfi=/tmp/bench._bdec7b_/benches/dfs-iai.rs
+cfn=dfs_iai::solve_sudoku::first
+calls=1 7 
+795 11772512 1937524 759378 250 1 60 247 0 43
+
+fl=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/std/src/alloc.rs
+fn=__rdl_alloc
+389 29
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/std/src/sys/pal/unix/alloc.rs
+13 116
+14 58 29
+cob=/nix/store/ddwyrxif62r8n6xclvskjyy6szdhvj60-glibc-2.39-5/lib/libc.so.6
+cfi=???
+cfn=malloc
+calls=38 0 
+14 1268 340 184 0 0 2 0 0 2
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/std/src/alloc.rs
+
+fn=__rdl_realloc
+406 248 0 155 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/std/src/sys/pal/unix/alloc.rs
+47 124
+48 248 155 0 1 1 0 1
+cob=/nix/store/ddwyrxif62r8n6xclvskjyy6szdhvj60-glibc-2.39-5/lib/libc.so.6
+cfi=???
+cfn=realloc
+calls=31 0 
+48 1910 422 255 4 0 8 2 0 5
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/std/src/alloc.rs
+
+fl=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/spec_from_iter.rs
+fn=<alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter
+32 99 27 54 2 0 0 2
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2461 72
+fi=/tmp/bench._bdec7b_/src/solver.rs
+329 18
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2461 27 0 0 1 0 0 1
+fi=/tmp/bench._bdec7b_/src/solver.rs
+334 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/mem/manually_drop.rs
+71 9
+fi=/tmp/bench._bdec7b_/src/solver.rs
+335 18 0 9
+462 18
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2461 27
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/convert/num.rs
+53 9
+fi=/tmp/bench._bdec7b_/src/solver.rs
+462 18
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 36 9
+0 9 0 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mod.rs
+1583 27 9 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/alloc.rs
+98 27 9 9
+cfi=???
+cfn=__rust_alloc
+calls=9 0 
+98 423 108 54
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+202 18
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mod.rs
+1415 9 0 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/spec_from_iter_nested.rs
+38 18 0 18
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/mod.rs
+2930 45 0 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2461 27 0 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/spec_from_iter_nested.rs
+0 9 0 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2461 18
+fi=/tmp/bench._bdec7b_/src/solver.rs
+329 18
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/spec_from_iter_nested.rs
+0 72 0 72
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2461 144
+fi=/tmp/bench._bdec7b_/src/solver.rs
+329 144
+0 216
+334 72
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/mem/manually_drop.rs
+71 72
+fi=/tmp/bench._bdec7b_/src/solver.rs
+462 144 0 0 1 0 0 1
+0 216
+335 72
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/convert/num.rs
+53 72
+fi=/tmp/bench._bdec7b_/src/solver.rs
+462 144
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 288 72
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/mod.rs
+2932 144 72
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+309 45 0 9
+cfn=alloc::raw_vec::RawVec<T,A>::reserve::do_reserve_and_handle
+calls=9 300 
+309 1134 270 234
+239 18 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mod.rs
+1415 9 0 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/mod.rs
+2941 27 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mod.rs
+1415 63 0 63 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/mod.rs
+2941 189 63
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/spec_from_iter_nested.rs
+44 45 27 18 1 0 0 1
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/spec_from_iter.rs
+34 81 63
+32 108 18 54 1 0 0 1
+fi=/tmp/bench._bdec7b_/src/solver.rs
+462 9
+310 45 9
+314 18 0 9 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 36 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mod.rs
+1583 27 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/alloc.rs
+98 27 9 9
+cfi=???
+cfn=__rust_alloc
+calls=9 0 
+98 423 108 54
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+202 18
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mod.rs
+1415 9 0 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/spec_from_iter_nested.rs
+38 27 0 18 1 0 0 1
+0 9 0 9
+fi=/tmp/bench._bdec7b_/src/solver.rs
+310 18
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/spec_from_iter_nested.rs
+0 72 0 72
+fi=/tmp/bench._bdec7b_/src/solver.rs
+310 144
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 72 72
+fi=/tmp/bench._bdec7b_/src/solver.rs
+314 72
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 144
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/mod.rs
+2932 144 72
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+309 36 0 9
+cfn=alloc::raw_vec::RawVec<T,A>::reserve::do_reserve_and_handle
+calls=9 300 
+309 1134 270 234 3 0 0 3
+239 9 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mod.rs
+1415 9 0 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/mod.rs
+2941 18
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mod.rs
+1415 63 0 63 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/mod.rs
+2941 126
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/spec_from_iter_nested.rs
+44 45 18 18
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/spec_from_iter.rs
+34 81 63 0 1 0 0 1
+32 9 0 6 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/adapters/filter_map.rs
+63 2
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2964 1 0 1 1 0 1 1 0 1
+cfi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/adapters/flatten.rs
+cfn=<core::iter::adapters::map::Map<I,F> as core::iter::traits::iterator::Iterator>::try_fold
+calls=1 510 
+2964 40 6 6 5 0 0 5
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ops/control_flow.rs
+181 2 1
+0 1 0 1
+183 2 1 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mod.rs
+1583 2 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/alloc.rs
+98 3 1 1
+cfi=???
+cfn=__rust_alloc
+calls=1 0 
+98 50 12 6 0 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+202 2 0 0 1 0 0 1
+0 2 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mod.rs
+1415 1 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/spec_from_iter_nested.rs
+38 3 0 3
+43 14 4 4 1 0 0 1
+0 63 63
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mod.rs
+1415 63 0 63 0 0 11 0 0 11
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/mod.rs
+2941 63
+1424 63 0 63
+2930 63
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2964 252 0 63
+cfi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/adapters/flatten.rs
+cfn=<core::iter::adapters::map::Map<I,F> as core::iter::traits::iterator::Iterator>::try_fold
+calls=63 510 
+2964 2152 350 282 2 0 0 2
+2964 4 0 1 1 0 0 1
+cfi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/adapters/flatten.rs
+cfn=<core::iter::adapters::map::Map<I,F> as core::iter::traits::iterator::Iterator>::try_fold
+calls=1 510 
+2964 31 5 4 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ops/control_flow.rs
+181 128 64
+183 126 63 63
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/mod.rs
+2932 126 63
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+309 16 0 4 1 0 0 1
+cfn=alloc::raw_vec::RawVec<T,A>::reserve::do_reserve_and_handle
+calls=4 300 
+309 1159 232 173 12 1 10 10 0 5
+239 8 4
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/spec_from_iter_nested.rs
+44 6 3 2
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/spec_from_iter.rs
+34 9 7 0 1 0 0 1
+32 108 18 54 1 0 0 1
+fi=/tmp/bench._bdec7b_/src/solver.rs
+462 9
+0 9 9
+286 54 0 0 1 0 0 1
+290 18 0 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 36 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mod.rs
+1583 27 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/alloc.rs
+98 27 9 9 1 0 0 1
+cfi=???
+cfn=__rust_alloc
+calls=9 0 
+98 423 108 54
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+202 18
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mod.rs
+1415 9 0 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/spec_from_iter_nested.rs
+38 18 0 18
+fi=/tmp/bench._bdec7b_/src/solver.rs
+286 18
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/spec_from_iter_nested.rs
+0 9 0 9
+fi=/tmp/bench._bdec7b_/src/solver.rs
+286 45 0 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/spec_from_iter_nested.rs
+0 72 0 72
+fi=/tmp/bench._bdec7b_/src/solver.rs
+286 360
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+0 72
+2462 72 72
+0 72
+2462 144
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/mod.rs
+2932 144 72
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+309 36 0 9
+cfn=alloc::raw_vec::RawVec<T,A>::reserve::do_reserve_and_handle
+calls=9 300 
+309 1134 270 234
+239 9 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mod.rs
+1415 9 0 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/mod.rs
+2941 18
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mod.rs
+1415 63 0 63
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/mod.rs
+2941 126
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/spec_from_iter_nested.rs
+44 45 18 18 1 0 0 1
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/spec_from_iter.rs
+34 81 63
+
+fl=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+fn=core::slice::sort::break_patterns
+680 3 0 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/num/mod.rs
+1281 15
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+708 15
+695 9
+696 9
+697 9 0 0 1 0 0 1
+714 9
+717 6
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+898 6
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+0 3
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+899 6
+898 3
+899 3
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 6 3 3
+2866 6 3 3 1 0 0 1
+2774 6 3 3
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+695 9
+696 9
+697 9
+714 9
+717 6
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+898 6 0 0 1 0 0 1
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+0 3
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+899 6
+898 3
+899 3
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 6 3 3
+2866 6 3 3
+2774 6 3 3
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+695 9
+696 9 0 0 1 0 0 1
+697 9
+714 6
+717 6
+721 3
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+898 6
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+0 3
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+899 6
+898 3
+899 3
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 6 3 3
+2866 6 3 3 1 0 0 1
+2774 6 3 3
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+724 6 3
+
+fn=core::slice::sort::choose_pivot::{{closure}}
+765 4455 0 2835 1 0 0 1
+758 1215 1215
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/const_ptr.rs
+944 810
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+758 810 405 405 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/const_ptr.rs
+944 405
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+758 1620 1215 405
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 405 405
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 1620 0 810 0 0 1
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=405 373 
+47 99170 12960 4849 21 0 0 21
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 405 405
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 3240 1215 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 810 810
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 810
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 810 810
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 1620 0 810 1 0 0 1
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=405 373 
+47 97465 12960 4508
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 405 405
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 2835 1620
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 810 810
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 810
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1509 1215 0 810 1 0 0 1
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+758 405
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2866 106 53 53
+2774 53 0 53
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+760 212 53 106
+0 1056 352 352
+758 1408 1408
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/const_ptr.rs
+944 1408 0 0 1 0 0 1
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+758 1408 1056 352
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 352 352
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 1408 0 704
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=352 373 
+47 88195 11264 4615
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+758 212 212
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/const_ptr.rs
+944 212
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+758 212 159 53
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 53 53
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 212 0 106
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=53 373 
+47 13105 1696 660
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 405 405
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 3240 1215 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 810 810
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 810
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 810 810
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 1620 0 810 1 0 0 1
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=405 373 
+47 99690 12960 4953
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 405 405
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 2835 1620
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 810 810
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 810
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1509 405
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+758 405
+0 79 79
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2866 79 0 79
+2774 79 0 79
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+760 237 79 79
+0 326 0 0 1 0 0 1
+758 652 652
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/const_ptr.rs
+944 1630 326
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+758 1304 978 326 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 326 326
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 1304 0 652
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=326 373 
+47 79975 10432 3933
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+758 158 158
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/const_ptr.rs
+944 395 79
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+758 316 237 79
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 79 79
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 316 0 158
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=79 373 
+47 19080 2528 893
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 405 405
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 3240 1215
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 810 810 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 810
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 810 810
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 1620 0 810
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=405 373 
+47 96945 12960 4404
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 405 405
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 2835 1620 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 810 810
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 810
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1509 810 405
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+758 405
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2866 34 17 17
+2774 17 0 17
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+760 34 17 17
+769 3240 2835 0 1 0 0 1
+
+fn=core::slice::sort::insertion_sort_shift_right
+173 150 0 90 1 0 0 1
+96 45 30 15
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 15 15
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 60 0 30
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=15 373 
+47 3325 480 110
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 15 15
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 120 45 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 30 30
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 30
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 30 30
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 60 0 30 1 0 0 1
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=15 373 
+47 3300 480 105
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 15 15
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 105 60
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 30 30
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 30
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1509 15 0 0 1 0 0 1
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+96 15
+192 120 105 0 1 0 0 1
+
+fn=core::slice::sort::insertion_sort_shift_left
+148 2695 0 2310
+155 1155
+0 770
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1573 385
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/range.rs
+729 385
+0 770 0 0 1 0 0 1
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+52 3465 0 1540 0 0 1
+0 6078 5065
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 1013 0 1013
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/range.rs
+0 1013
+729 1013 0 1013
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1573 1013
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/range.rs
+729 1013
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+0 183 183
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 183 0 183
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/range.rs
+0 183
+729 183 0 183
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1573 183
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/range.rs
+729 183
+0 3210
+729 3210 0 3210
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1573 3210
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/range.rs
+729 3210
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 8812 0 0 1 0 0 1
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+52 13218 8812 4406 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 8812 4406 4406
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 17624 0 8812 1 0 1 1
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=4406 373 
+47 1081560 140992 53290 0 0 2
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 4406 4406
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 35248 13218
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 8812 8812
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 8812 0 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 8812 8812
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 17624 0 8812
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=4406 373 
+47 1092300 140992 55438
+47 4406
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 4406 4406
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 30842 17624 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 8812 8812
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 8812
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1509 8812
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+52 4406
+0 3588
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 2392 1196 1196
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1509 1196
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/range.rs
+774 1196 0 0 1 0 0 1
+0 6624 1104 3312 0 0 1
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+73 2208 1104 1104
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 2208 2208
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 5520 0 2208 1 0 0 1
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=1104 373 
+47 269315 35328 13015
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/range.rs
+0 3342 0 3342
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+73 3342 1671 1671
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 3342 3342
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 8355 0 3342
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=1671 373 
+47 393085 53472 16790
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 41625 27750 13875 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 5550 5550
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 11100 0 5550 1 0 0 1
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=2775 373 
+47 677605 88800 32846
+47 2775 2775
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 22200 13875
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 2775 2775
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 22200 11100 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 5550 5550
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 5550
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1509 2775
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+73 2775
+0 3524 1762 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 5286 3524 1762
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1509 10572 1762
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/range.rs
+774 1762
+0 364 182
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+166 3080 2695 0 1 0 0 1
+
+fn=core::slice::sort::partial_insertion_sort
+198 1236 0 824 1 0 0 1
+215 700 200 0 1 0 0 1
+0 100 0 100
+215 100 100
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 200 100 100
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 400 0 200 1 0 0 1
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=100 373 
+47 22380 3200 776
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+0 717 0 717
+215 717 717
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 1434 717 717
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 2868 0 1434
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=717 373 
+47 168935 22944 7258
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 817 817
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 6536 2451
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 1634 1634
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 1634
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 1634 1634
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 3268 0 1634 1 0 0 1
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=817 373 
+47 190515 26144 7874
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 817 817
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 5719 3268
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 1634 1634
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 1634 0 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1509 817
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+215 817
+216 717
+215 3585 1434
+0 30 0 3
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1573 15
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/range.rs
+729 15
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+215 30 0 0 1 0 0 1
+0 15 0 15
+215 75
+0 15 0 15
+215 60 45 15 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 15 15
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 90 0 30
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=15 373 
+47 3510 480 147
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+0 43 0 43
+215 172 129 43
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 43 43
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 258 0 86
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=43 373 
+47 9960 1376 401
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 58 58
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 464 174 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 116 116
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 116
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 116 116
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 232 0 116
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=58 373 
+47 13440 1856 542
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 58 58
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 406 232 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 116 116
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 116
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1509 58
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+215 58
+216 86 43
+215 215 0 0 1 0 0 1
+0 60 60
+221 45
+231 15 0 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+898 30
+899 30
+898 30
+899 30
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 30 15 15
+2866 30 15 15
+2774 30 15 15
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+233 30
+235 75 15 15
+cfn=core::slice::sort::insertion_sort_shift_left
+calls=15 148 
+235 9846 1634 644
+238 60 0 15
+cfn=core::slice::sort::insertion_sort_shift_right
+calls=15 173 
+238 7510 1335 380 5 0 0 5
+238 15
+0 100 100 0 1 0 0 1
+221 200 0 0 1 0 0 1
+244 927 721
+
+fn=core::slice::sort::recurse
+804 1320 0 1056 2 0 0 2
+820 264
+0 8
+821 264
+822 660 132 132
+cfn=core::slice::sort::insertion_sort_shift_left
+calls=132 148 
+822 1558539 238966 105499 0 0 1
+889 1056 924
+0 1024 256 640 1 0 0 1
+829 256 128
+0 450 300
+829 302 151
+836 558 279 0 1 0 0 1
+742 837 0 279
+743 558 0 279
+744 558 0 279
+747 279 0 279
+757 1395 0 1116 1 0 0 1
+771 1116 0 558
+775 396 0 99 1 0 0 1
+cfn=core::slice::sort::choose_pivot::{{closure}}
+calls=33 765 
+775 51579 8913 2736 34 0 1 34
+775 297 0 99 1 0 0 1
+cfn=core::slice::sort::choose_pivot::{{closure}}
+calls=33 765 
+775 53536 8912 3130
+775 363 66 99 1 0 0 1
+cfn=core::slice::sort::choose_pivot::{{closure}}
+calls=33 765 
+775 54685 8931 3380
+785 1395 0 279
+cfn=core::slice::sort::choose_pivot::{{closure}}
+calls=279 765 
+785 462370 75158 28162
+788 837 279
+789 1116 558 0 1 0 0 1
+846 639 279
+0 279 279 0 1 0 0 1
+857 279
+858 270
+0 135 0 135
+858 945 540 135 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 135 135
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 810 0 270
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=135 373 
+47 32945 4320 1594
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 135 135
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 1080 405 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 270 270
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 270
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 270 270
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 540 0 270 1 0 0 1
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=135 373 
+47 33840 4320 1773
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 135 135
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 945 540 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 270 270
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 270
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1509 135
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+858 135
+0 60
+859 120 60 60
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 120 60 60 1 0 0 1
+2866 120 60 60
+2774 120 60 60
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 180 60 60
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2027 60
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mod.rs
+1215 300 60 120 1 0 0 1
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+646 816 212 60
+0 212 0 212
+646 636 424 212
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 424 424 0 1 0 0 1
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 1272 0 424
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=212 373 
+47 52040 6784 2564
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+0 572 0 572
+646 1716 1144 572
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 1144 1144
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 3432 0 1144
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=572 373 
+47 140435 18304 6923
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 11760 7056 3136 2 0 0 2
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 1568 1568
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 1568 0 1568
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=784 373 
+47 194255 25088 9843
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 5488 3136 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 784 784
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 6272 3136
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 1568 1568 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 1568
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1509 784
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+646 784
+0 594 594
+647 1188 594
+646 2376 594 594
+0 132 110 22
+651 66 22
+0 22 22
+652 44 0 22
+653 44 22
+0 760 760 0 1 0 0 1
+651 570 190
+0 190 190
+652 380 0 190 1 0 0 1
+653 380 190
+0 15 15
+651 45 15
+0 15 15
+652 30 0 15
+653 30 15
+0 599 599
+652 1198 0 599
+653 1198 599
+0 766 0 766
+653 2298 1532 766
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 1532 1532
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 4596 0 1532 1 0 0 1
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=766 373 
+47 187845 24512 9227
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 11490 6894 3064 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 1532 1532 0 1 0 0 1
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 1532 0 1532
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=766 373 
+47 197905 24512 11239
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 6128 3064
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 766 766 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 5362 3064
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 1532 1532
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 2298 766 0 1 0 0 1
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+653 766
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1509 3064 2298
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+653 766
+0 167 167
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 501 167
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 334 167 167 1 0 0 1
+2866 334 167 167
+2774 334 167 167
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+666 501 167 167
+646 516 0 167
+0 60 60 0 1 0 0 1
+671 120 60
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 60 0 60
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/index.rs
+488 180
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 180
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+820 179
+837 9 0 3
+cfn=core::slice::sort::break_patterns
+calls=3 680 
+837 282 30 27 6 0 0 6
+838 6 0 3
+849 324 81 81
+cfn=core::slice::sort::partial_insertion_sort
+calls=81 198 
+849 425419 69347 21654 11 0 0 11
+849 162
+0 513 294 75 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+899 438 0 0 1 0 0 1
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+868 438 219 219
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+899 438 219
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 438 219 219
+2866 438 219 219 1 0 0 1
+2774 438 219 219
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 438 0 219
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2027 219
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mod.rs
+1215 1314 219 657
+0 438 0 438 1 0 0 1
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+588 438 438
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 219 219
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 876 0 438
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=219 373 
+47 50380 7008 1973
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mod.rs
+0 3554 0 3554
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+588 3554 3554
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 1777 1777
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 7108 0 3554
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=1777 373 
+47 417980 56864 17847
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 25948 17964 7984 2 0 0 2
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 3992 3992
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 7984 0 3992
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=1996 373 
+47 495845 63872 25317
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 13972 7984 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 1996 1996
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 15968 7984 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 3992 3992
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 3992
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1509 3992 1996
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+588 1996
+0 1777 1777
+589 3554 1777
+588 5331
+0 438 438 0 1 0 0 1
+593 876 219 219
+0 438 0 0 1 0 0 1
+593 657 0 219
+0 6418
+593 9627 0 3209
+0 3423 0 3423
+593 6846 6846
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 3423 3423
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 13692 0 6846 1 0 0 1
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=3423 373 
+47 877260 109536 48801
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 44499 30807 13692 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 6846 6846
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 13692 0 6846 1 0 0 1
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=3423 373 
+47 844980 109536 42345
+0 3423 3423
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+593 3423
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 27384 13692 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 3423 3423
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 23961 13692
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 6846 6846 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 10269 3423
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+593 3423
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1509 6846 3423
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+593 3423
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/index.rs
+402 438
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 3285 438 657 1 0 0 1
+484 214
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 214 0 214
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 428
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+482 1284 428
+494 1284
+351 214
+502 214
+482 30 10
+494 30
+351 5
+502 5
+345 438 0 0 2 0 0 2
+351 219
+353 219
+345 438
+356 2409 219
+362 1095 219 438 1 0 0 1
+356 219
+362 219
+370 657 0 219
+371 438 0 219
+377 438
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1573 219 219
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/range.rs
+729 219
+0 2140 0 1498 1 0 0 1
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+396 428 0 428 1 0 0 1
+397 428 428
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 214 214
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 1284 0 428
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=214 373 
+47 52960 6848 2674
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/range.rs
+0 2742 0 2742
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+396 2742 0 2742
+397 2742 2742
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 1371 1371
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 8226 0 2742
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=1371 373 
+47 329115 43872 15096
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 23775 14265 6340 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 3170 3170 0 1 0 0 1
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 3170 0 3170
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=1585 373 
+47 390960 50720 19547
+0 3170 1585
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 11095 6340
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 1585 1585
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 12680 6340 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 3170 3170
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 3170
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1509 3170 1585
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 4755 1585 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1573 1585 1585
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/range.rs
+729 1585
+0 1712 1498 0 1 0 0 1
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+403 428
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1573 219 219
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/range.rs
+729 219
+0 1070 0 1070 1 0 0 1
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 642
+0 428 0 428
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+424 428 0 428
+425 428 428
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 214 214
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 1284 0 428 1 0 0 1
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=214 373 
+47 50520 6848 2186
+0 2928 0 2928
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+424 2928 0 2928
+425 2928 2928
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 1464 1464
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 8784 0 2928
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=1464 373 
+47 359925 46848 17817
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 25170 15102 6712 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 3356 3356
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 3356 0 3356
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=1678 373 
+47 414145 53696 20743
+0 3356 1678
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 11746 6712 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 1678 1678
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 13424 6712
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 3356 3356 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 3356
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1509 3356 1678
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 3356 1678
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1573 3356 1678
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/range.rs
+729 1678
+0 1941 1498 0 1 0 0 1
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+403 15
+0 20
+345 20
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+0 10
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+433 10
+345 856 0 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+0 428
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+433 428
+465 214 214 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 214
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mod.rs
+1215 214 214
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+466 214 214
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1137 428
+484 428
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 428 214 214
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1573 428
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/range.rs
+729 230
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+470 115 115 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 230
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/convert/num.rs
+103 115
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1137 115
+484 115
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 230 115 115
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+472 115 115
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 115
+1137 230
+484 230
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 230 115 115
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1573 115
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/range.rs
+729 115
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+470 91 91
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 182
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/convert/num.rs
+103 91
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1137 91
+484 91
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 182 91 91
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+472 91 91
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 91
+1137 182
+484 182
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 182 91 91
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1573 91
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/range.rs
+729 206
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+511 438 0 0 1 0 0 1
+515 392
+0 49
+515 196
+534 242
+538 384
+0 56
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+484 49 0 0 1 0 0 1
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+529 49 49
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 49
+484 49
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 98 49 49
+2866 98 49 49 1 0 0 1
+2774 147 49 49
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+515 228
+529 32 32
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 32
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 64 32 32 1 0 0 1
+2866 64 32 32
+2774 64 32 32
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+529 32 32
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+484 32
+1045 32
+484 32
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 64 32 32
+2866 64 32 32
+2774 96 32 32 1 0 0 1
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+515 64
+529 118 118
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 118
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 236 118 118
+2866 236 118 118
+2774 236 118 118
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+529 118 118
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+484 118
+1045 118
+484 118
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 236 118 118
+2866 236 118 118
+2774 354 118 118
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+515 317
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+484 68
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+542 68 68
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1137 68
+484 68
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 136 68 68
+2866 136 68 68
+2774 136 68 68 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 136
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+538 543
+542 63 63
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1137 63
+484 63
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 126 63 63
+2866 126 63 63
+2774 126 63 63 1 0 0 1
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+542 63 63
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+484 63
+1137 63
+484 63
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 126 63 63
+2866 126 63 63
+2774 126 63 63
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 63
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+538 126
+542 23 23
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1137 23
+484 23
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 46 23 23
+2866 46 23 23
+2774 46 23 23
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+542 23 23
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+484 23
+1137 23
+484 23
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 46 23 23
+2866 46 23 23
+2774 46 23 23
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 23
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+538 46
+0 88
+345 88 88
+0 176 88
+598 264 176
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 176 88 88
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+899 264
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+345 131 131 0 1 0 0 1
+0 262 131
+598 393 262
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 262 131 131
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+899 393
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+598 438 0 219 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+899 657
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 438 219 219
+2866 438 219 219
+2774 438 219 219
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+0 657
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+869 657 0 219 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 438
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2027 219
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+880 438
+881 1032 344 172
+cfn=core::slice::sort::recurse'2
+calls=172 804 
+881 2218670 378551 125366 19 0 9 19
+881 516 0 172 1 0 0 1
+885 329 47 47
+cfn=core::slice::sort::recurse'2
+calls=47 804 
+885 602230 92857 42072
+0 438 0 438
+820 507 0 0 1 0 0 1
+
+fn=core::slice::sort::recurse'2
+804 2400 0 1920 0 0 2
+820 480
+0 426
+821 480
+822 1190 238 238 0 0 1
+cfn=core::slice::sort::insertion_sort_shift_left
+calls=238 148 
+822 2375638 393465 138486 12 0 5 12
+889 1920 1680
+0 216 54 135
+829 54 27
+836 54 27
+742 81 0 27
+743 54 0 27
+744 54 0 27
+747 27 0 27
+757 135 0 108
+771 108 0 54
+785 135 0 27
+cfn=core::slice::sort::choose_pivot::{{closure}}
+calls=27 765 
+785 43022 7276 2384
+788 81 27
+789 108 54
+846 76 27
+0 27 27
+857 27
+858 14
+0 7 0 7
+858 49 28 7
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 7 7
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 42 0 14
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=7 373 
+47 1685 224 78
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 7 7
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 56 21
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 14 14
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 14
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 14 14
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 28 0 14
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=7 373 
+47 1740 224 89
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 7 7
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 49 28
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 14 14
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 14
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1509 7
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+858 7
+0 6
+859 12 6 6
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 12 6 6
+2866 12 6 6
+2774 12 6 6
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 18 6 6
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2027 6
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mod.rs
+1215 30 6 12
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+646 90 24 6
+0 24 0 24
+646 72 48 24
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 48 48
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 144 0 48
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=24 373 
+47 5955 768 303
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+0 57 0 57
+646 171 114 57
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 114 114
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 342 0 114
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=57 373 
+47 14120 1824 715
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 1215 729 324
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 162 162
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 162 0 162
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=81 373 
+47 20220 2592 1047
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 567 324
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 81 81
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 648 324
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 162 162
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 162
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1509 81
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+646 81
+0 59 59
+647 118 59
+646 236 59 59
+0 12 10 2
+651 6 2
+0 2 2
+652 4 0 2
+653 4 2
+0 88 88
+651 66 22
+0 22 22
+652 44 0 22
+653 44 22
+0 1 1
+651 3 1
+0 1 1
+652 2 0 1
+653 2 1
+0 36 36
+652 72 0 36
+653 72 36
+0 55 0 55
+653 165 110 55
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 110 110
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 330 0 110
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=55 373 
+47 13705 1760 706
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 825 495 220
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 110 110
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 110 0 110
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=55 373 
+47 14130 1760 791
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 440 220
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 55 55
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 385 220
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 110 110
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 165 55
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+653 55
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1509 220 165
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+653 55
+0 19 19
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 57 19
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 38 19 19
+2866 38 19 19
+2774 38 19 19
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+666 57 19 19
+646 58 0 19
+0 6 6
+671 12 6
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 6 0 6
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/index.rs
+488 18
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 18
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+820 18
+849 88 22 22
+cfn=core::slice::sort::partial_insertion_sort
+calls=22 198 
+849 45240 7231 2535 7 0 0 7
+849 44
+0 43 22 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+899 42
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+868 42 21 21
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+899 42 21
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 42 21 21
+2866 42 21 21
+2774 42 21 21
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 42 0 21
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2027 21
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mod.rs
+1215 126 21 63
+0 42 0 42
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+588 42 42
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 21 21
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 84 0 42
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=21 373 
+47 4685 672 160 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mod.rs
+0 182 0 182
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+588 182 182
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 91 91
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 364 0 182
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=91 373 
+47 20830 2912 799
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 1456 1008 448
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 224 224
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 448 0 224
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=112 373 
+47 26295 3584 1115
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 784 448
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 112 112
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 896 448
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 224 224
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 224
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1509 224 112
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+588 112
+0 91 91
+589 182 91
+588 273
+0 42 42
+593 84 21 21
+0 42
+593 63 0 21
+0 210
+593 315 0 105
+0 126 0 126
+593 252 252
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 126 126
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 504 0 252
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=126 373 
+47 29475 4032 1233
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 1638 1134 504
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 252 252
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 504 0 252
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=126 373 
+47 29165 4032 1171
+0 126 126
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+593 126
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 1008 504
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 126 126
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 882 504
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 252 252
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 378 126
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+593 126
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1509 252 126
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+593 126
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/index.rs
+402 42
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 315 42 63
+484 21
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 21 0 21
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 42
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+482 126 42
+494 126
+351 21
+502 21
+345 42
+351 21
+353 21
+345 42
+356 231 21
+362 105 21 42
+356 21
+362 21
+370 63 0 21
+371 42 0 21
+377 42
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1573 21 21
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/range.rs
+729 21
+0 210 0 147
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+396 42 0 42
+397 42 42
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 21 21
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 126 0 42
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=21 373 
+47 4910 672 205
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/range.rs
+0 210 0 210
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+396 210 0 210
+397 210 210
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 105 105
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 630 0 210
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=105 373 
+47 24275 3360 970
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 1890 1134 504
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 252 252
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 252 0 252
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=126 373 
+47 29255 4032 1189
+0 252 126
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 882 504
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 126 126
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 1008 504
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 252 252
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 252
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1509 252 126
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 378 126
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1573 126 126
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/range.rs
+729 126
+0 168 147
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+403 42
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1573 21 21
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/range.rs
+729 21
+0 105 0 105
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 63
+0 42 0 42
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+424 42 0 42
+425 42 42
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 21 21
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 126 0 42
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=21 373 
+47 4675 672 158
+0 232 0 232
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+424 232 0 232
+425 232 232
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 116 116
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 696 0 232
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=116 373 
+47 27345 3712 1177
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 2055 1233 548
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2989 274 274
+fi=/tmp/bench._bdec7b_/src/solver.rs
+47 274 0 274
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=137 373 
+47 31785 4384 1288
+0 274 137
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 959 548
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 137 137
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 1096 548
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 274 274
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 274
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1509 274 137
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 274 137
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1573 274 137
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/range.rs
+729 137
+0 189 147
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+345 84
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+0 42
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+433 42
+465 21 21
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 21
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mod.rs
+1215 21 21
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+466 21 21
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1137 42
+484 42
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 42 21 21
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1573 42
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/range.rs
+729 18
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+470 9 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 18
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/convert/num.rs
+103 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1137 9
+484 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 18 9 9
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+472 9 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 9
+1137 18
+484 18
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 18 9 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1573 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/range.rs
+729 9
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+470 7 7
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 14
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/convert/num.rs
+103 7
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1137 7
+484 7
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 14 7 7
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+472 7 7
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 7
+1137 14
+484 14
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 14 7 7
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1573 7
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/range.rs
+729 16
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+511 42
+515 60
+0 7
+515 28
+534 12
+538 12
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+484 8
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+529 8 8
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 8
+484 8
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 16 8 8
+2866 16 8 8
+2774 24 8 8
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+515 38
+529 6 6
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 6
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 12 6 6
+2866 12 6 6
+2774 12 6 6
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+529 6 6
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+484 6
+1045 6
+484 6
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 12 6 6
+2866 12 6 6
+2774 18 6 6
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+515 12
+529 21 21
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 21
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 42 21 21
+2866 42 21 21
+2774 42 21 21
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+529 21 21
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+484 21
+1045 21
+484 21
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 42 21 21
+2866 42 21 21
+2774 63 21 21
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+515 55
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+484 3
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+542 3 3
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1137 3
+484 3
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 6 3 3
+2866 6 3 3
+2774 6 3 3
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 6
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+538 15
+0 3
+345 3 3
+0 6 3
+598 9 6
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 6 3 3
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+899 9
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+345 18 18
+0 36 18
+598 54 36
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 36 18 18
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+899 54
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+598 42 0 21
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+899 63
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/intrinsics.rs
+2774 42 21 21
+2866 42 21 21
+2774 42 21 21
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+0 63
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+869 63 0 21
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 42
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/mod.rs
+2027 21
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+880 42
+881 78 26 13
+cfn=core::slice::sort::recurse'2
+calls=13 804 
+881 28165 4851 1508 0 0 6
+881 39 0 13
+885 56 8 8
+cfn=core::slice::sort::recurse'2
+calls=8 804 
+885 37566 5860 2176
+0 42 0 42
+820 63
+
+fl=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+fn=alloc::raw_vec::RawVec<T,A>::reserve::do_reserve_and_handle
+300 81 0 54 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/num/mod.rs
+1281 27
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+423 27
+0 27 0 0 1 0 0 1
+427 54 27
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+0 135
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/alloc/layout.rs
+449 81
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+256 54
+433 27 27
+268 108 0 81 1 0 0 1
+0 54
+433 54 0 27
+cfn=alloc::raw_vec::finish_grow
+calls=27 500 
+433 2430 621 486
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/result.rs
+1946 54 54
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+433 27
+401 27 0 27
+402 27 0 27
+306 108 81
+300 12 0 8 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/num/mod.rs
+1281 4
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+423 4
+0 4 0 0 1 0 0 1
+427 8 4
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+0 36
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/alloc/layout.rs
+449 12
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+256 8
+433 4 4
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/num/mod.rs
+1281 4 0 0 1 0 0 1
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+268 16 0 12
+0 8
+433 4 0 4 0 0 1
+cfn=alloc::raw_vec::finish_grow
+calls=4 500 
+433 999 204 141 8 1 9 6 0 5
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/result.rs
+1946 8 8
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+433 4
+401 4 0 4 1 0 0 1
+402 4 0 4
+306 16 12
+
+fn=alloc::raw_vec::finish_grow
+500 155 0 93 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/result.rs
+827 62
+0 31
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+513 93 62
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/alloc.rs
+202 62 0 0 1 0 0 1
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+0 31 31
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/alloc.rs
+136 93 31 31
+cfi=???
+cfn=__rust_realloc
+calls=31 0 
+136 2561 577 410 5 1 9 3 0 5
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/result.rs
+827 62
+828 93 0 31 1 0 0 1
+0 62 0 62
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+525 124 124
+
+fl=???
+fn=__rust_alloc
+0 29
+cfi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/std/src/alloc.rs
+cfn=__rdl_alloc
+calls=38 389 
+0 1471 369 184 0 0 2 0 0 2
+
+fn=main
+cfi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/std/src/rt.rs
+cfn=std::rt::lang_start_internal
+calls=1 125 
+0 11772512 1937524 759378 250 1 60 247 0 43
+
+fn=__rust_dealloc
+0 29
+cfi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/std/src/sys/pal/unix/alloc.rs
+cfn=__rdl_dealloc
+calls=38 42 
+0 2439 723 391 10 0 0 9
+
+fn=__rust_realloc
+0 31
+cfi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/std/src/alloc.rs
+cfn=__rdl_realloc
+calls=31 406 
+0 2530 577 410 5 1 9 3 0 5
+
+fn=(below main)
+cob=/nix/store/ddwyrxif62r8n6xclvskjyy6szdhvj60-glibc-2.39-5/lib/libc.so.6
+cfi=???
+cfn=__libc_start_main@@GLIBC_2.34
+calls=1 0 
+0 11772512 1937524 759378 250 1 60 247 0 43
+
+fl=/tmp/bench._bdec7b_/src/solver.rs
+fn=libsolver::solver::Sudoku::valid
+394 11 0 5
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/collect.rs
+279 3 0 3 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/mod.rs
+2836 3 0 1
+cfi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/spec_from_iter.rs
+cfn=<alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter
+calls=1 32 
+2836 327 74 63 8 0 0 8
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/collect.rs
+279 24 0 24
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/mod.rs
+2836 24 0 8
+cfi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/spec_from_iter.rs
+cfn=<alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter
+calls=8 32 
+2836 2616 592 504
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+239 9 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/mod.rs
+2706 9 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/non_null.rs
+1796 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+162 9
+0 18
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/non_null.rs
+623 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 18 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/non_null.rs
+1796 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+162 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/non_null.rs
+623 72
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 144 72
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/non_null.rs
+1796 72
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+162 72
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/non_null.rs
+1796 324
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+162 324
+285 324
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/num/nonzero.rs
+1519 648 324
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+285 324 0 0 1 0 0 1
+162 162
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/non_null.rs
+1796 81
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+162 90
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+530 9 9
+256 18
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/alloc.rs
+117 18 0 9
+cfi=???
+cfn=__rust_dealloc
+calls=9 0 
+117 738 216 117
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/collect.rs
+279 27 0 27 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/mod.rs
+2836 27 0 9
+cfi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/spec_from_iter.rs
+cfn=<alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter
+calls=9 32 
+2836 3285 666 567 5 0 0 5
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+239 9 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/mod.rs
+2706 9 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/non_null.rs
+1796 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+162 9
+0 18
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/non_null.rs
+623 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 18 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/non_null.rs
+1796 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+162 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/non_null.rs
+623 72
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 144 72
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/non_null.rs
+1796 72
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+162 72
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/non_null.rs
+1796 324
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+162 324
+285 324
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/num/nonzero.rs
+1519 648 324
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+285 324 0 0 1 0 0 1
+162 162
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/non_null.rs
+1796 81
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+162 81
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+530 9 9
+256 18
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/alloc.rs
+117 18 0 9
+cfi=???
+cfn=__rust_dealloc
+calls=9 0 
+117 738 216 117
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/collect.rs
+279 27 0 27
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/mod.rs
+2836 27 0 9 1 0 0 1
+cfi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/spec_from_iter.rs
+cfn=<alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter
+calls=9 32 
+2836 4419 747 585 8 0 0 8
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+239 9 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/mod.rs
+2706 9 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/non_null.rs
+1796 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+162 9
+0 18
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/non_null.rs
+623 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 27 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/non_null.rs
+1796 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+162 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/non_null.rs
+623 72
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 216 72
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/non_null.rs
+1796 72
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+162 72
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/non_null.rs
+1796 324
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+162 324
+285 324
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/num/nonzero.rs
+1519 648 324
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+285 324 0 0 1 0 0 1
+162 162
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/non_null.rs
+1796 81
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+162 81
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+530 9 9
+256 18
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/alloc.rs
+117 18 0 9
+cfi=???
+cfn=__rust_dealloc
+calls=9 0 
+117 738 216 117
+0 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1509 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/range.rs
+729 9
+0 2
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/cmp.rs
+1509 2 0 0 1 0 0 1
+fe=/tmp/bench._bdec7b_/src/solver.rs
+396 7 6
+
+fn=<libsolver::solver::IterativeDFS as libsolver::solver::Solver>::try_solve
+40 9 0 6 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/const_ptr.rs
+944 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/adapters/filter_map.rs
+23 7 0 5 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/mod.rs
+2836 1 0 1
+cfi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/spec_from_iter.rs
+cfn=<alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter
+calls=1 32 
+2836 4466 881 748 27 1 23 25 0 18
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+239 1 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/mod.rs
+2714 4 1 2 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/num/mod.rs
+1281 5
+0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+902 2
+904 3 0 1
+cfn=core::slice::sort::recurse
+calls=1 804 
+904 138422 24168 8027 107 0 4 107
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+185 3 0 1 1 0 0 1
+0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/alloc/layout.rs
+449 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+190 1
+0 2
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mod.rs
+1583 2 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/alloc.rs
+98 3 1 1 1 0 0 1
+cfi=???
+cfn=__rust_alloc
+calls=1 0 
+98 181 33 16 0 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+202 2
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/mod.rs
+1994 1 1
+672 3 0 3
+1994 2
+0 3
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/num/mod.rs
+1281 262
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/sort.rs
+902 262
+904 393 0 131
+cfn=core::slice::sort::recurse
+calls=131 804 
+904 11107473 1836114 709736 40 0 7 40
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/mod.rs
+1994 2355 785
+1998 1570 0 785 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+239 785 785
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/const_ptr.rs
+944 785
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mod.rs
+1215 1570 785 785 1 0 0 1
+fe=/tmp/bench._bdec7b_/src/solver.rs
+55 3925 0 1570
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=785 373 
+55 214480 25120 13851
+121 1570 785
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 785
+fe=/tmp/bench._bdec7b_/src/solver.rs
+121 686 686
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 686
+fe=/tmp/bench._bdec7b_/src/solver.rs
+121 606 606
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 606 0 0 1 0 0 1
+fe=/tmp/bench._bdec7b_/src/solver.rs
+121 544 544
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 544
+fe=/tmp/bench._bdec7b_/src/solver.rs
+121 474 474
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 474
+fe=/tmp/bench._bdec7b_/src/solver.rs
+121 396 396
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 396
+fe=/tmp/bench._bdec7b_/src/solver.rs
+121 283 283
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 283
+fe=/tmp/bench._bdec7b_/src/solver.rs
+121 226 226
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 226
+fe=/tmp/bench._bdec7b_/src/solver.rs
+121 158 158
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 158 0 0 1 0 0 1
+0 123 123
+fe=/tmp/bench._bdec7b_/src/solver.rs
+468 246
+469 246
+0 123
+469 492
+70 123 0 123
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/mod.rs
+1921 369 246 0 1 0 0 1
+0 99
+1921 396 198
+0 80
+1921 320 160
+0 62 0 0 1 0 0 1
+1921 248 124
+0 70
+1921 280 140
+0 78
+1921 312 156
+0 113
+1921 452 226
+0 57 0 0 1 0 0 1
+1921 228 114
+0 68
+1921 272 136
+0 35
+1921 105 70
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+239 662 662 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 1324 662
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mod.rs
+1415 1324 0 1324 0 0 24 0 0 24
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/mod.rs
+1927 662 0 662
+fe=/tmp/bench._bdec7b_/src/solver.rs
+468 1324 0 0 1 0 0 1
+469 1324
+0 662
+469 2648
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 3310 2648 0 1 0 0 1
+fe=/tmp/bench._bdec7b_/src/solver.rs
+60 662 0 662
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 662
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 662 662
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 662
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+232 662 662
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/accum.rs
+53 1324
+fe=/tmp/bench._bdec7b_/src/solver.rs
+61 1324
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+239 131 131
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/mod.rs
+2714 524 131 262 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/num/mod.rs
+1281 262
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+239 721 721
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 1442 721
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mod.rs
+1415 721 0 721
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/mod.rs
+1927 721 0 721
+1994 2163 721 0 1 0 0 1
+1998 1442 0 721
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+239 721 721
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/const_ptr.rs
+944 721
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mod.rs
+1215 1442 721 721
+fe=/tmp/bench._bdec7b_/src/solver.rs
+468 1442
+469 1442
+0 721 721
+469 1442 0 0 1 0 0 1
+0 721 721
+469 1442
+81 1442 721 721
+83 3605 0 1442
+cfn=libsolver::solver::Sudoku::all_affecting
+calls=721 373 
+83 194250 23072 12173
+0 1442
+144 6522 0 0 1 0 0 1
+147 2663
+121 5326 2663
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 2786
+fe=/tmp/bench._bdec7b_/src/solver.rs
+92 598 0 598
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/mod.rs
+1921 2163 1442 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+239 123 123
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mut_ptr.rs
+1045 246 123
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mod.rs
+1415 246 0 246
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/vec/mod.rs
+1927 123 0 123
+fe=/tmp/bench._bdec7b_/src/solver.rs
+88 246 0 123 1 0 0 1
+75 13 6 6 1 0 0 1
+399 1 1 1
+cfi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ops/function.rs
+cfn=libsolver::solver::Sudoku::filled
+calls=1 294 
+399 22 7 0 3 0 0 3
+399 4
+0 1 0 0 1 0 0 1
+399 1 1 1
+cfn=libsolver::solver::Sudoku::valid
+calls=1 394 
+399 21478 4029 2210 28 0 0 28
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/bool.rs
+34 1
+fe=/tmp/bench._bdec7b_/src/solver.rs
+253 18 6 6 2 0 1 2
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mod.rs
+1215 1 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/option.rs
+1201 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/result.rs
+1028 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/mod.rs
+1215 8 8
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/option.rs
+1201 8
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/result.rs
+1028 8
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/adapters/map.rs
+0 9 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/option.rs
+1201 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/result.rs
+1028 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/adapters/map.rs
+0 9 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/option.rs
+1201 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/result.rs
+1028 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/adapters/map.rs
+0 9 9 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/option.rs
+1201 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/result.rs
+1028 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/adapters/map.rs
+0 9 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/option.rs
+1201 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/result.rs
+1028 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/adapters/map.rs
+0 9 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/option.rs
+1201 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/result.rs
+1028 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/adapters/map.rs
+0 9 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/option.rs
+1201 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/result.rs
+1028 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/adapters/map.rs
+0 9 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/option.rs
+1201 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/result.rs
+1028 9 0 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/adapters/map.rs
+0 9 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/option.rs
+1201 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/result.rs
+1028 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/mem/maybe_uninit.rs
+494 81 0 81 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/array/mod.rs
+816 36 9
+108 13 6 5 2 0 0 2
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/bool.rs
+34 2
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/option.rs
+1202 10 5 5 1 0 0 1
+fe=/tmp/bench._bdec7b_/src/solver.rs
+74 2 0 1
+0 1 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+530 1 1
+256 2
+530 1 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/num/mod.rs
+1281 2
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/alloc.rs
+117 2 1 1 1 0 0 1
+cfi=???
+cfn=__rust_dealloc
+calls=1 0 
+117 172 51 27 10 0 0 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/raw_vec.rs
+530 1 1
+256 2
+530 1 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/num/mod.rs
+1281 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/alloc/src/alloc.rs
+117 2 1 1
+cfi=???
+cfn=__rust_dealloc
+calls=1 0 
+117 82 24 13
+fe=/tmp/bench._bdec7b_/src/solver.rs
+99 9 7
+
+fn=libsolver::solver::Sudoku::all_affecting
+373 42100 0 0 1 0 0 1
+442 42100 42100
+424 84200
+0 42100 42100
+433 84200
+0 42100
+453 421000 0 0 1 0 0 1
+415 84200
+107 168400 0 84200 0 0 2
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/mem/manually_drop.rs
+71 42100
+fe=/tmp/bench._bdec7b_/src/solver.rs
+462 168400 0 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 126300 42100
+0 10958
+fe=/tmp/bench._bdec7b_/src/solver.rs
+112 10958
+113 21916
+114 10958 0 10958
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/mem/manually_drop.rs
+71 10958
+fe=/tmp/bench._bdec7b_/src/solver.rs
+462 21916
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/mem/manually_drop.rs
+71 31142
+fe=/tmp/bench._bdec7b_/src/solver.rs
+462 104384
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 126300 42100 0 1 0 0 1
+0 13831
+fe=/tmp/bench._bdec7b_/src/solver.rs
+112 13831
+113 27662
+114 13831 0 13831
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/mem/manually_drop.rs
+71 13831
+fe=/tmp/bench._bdec7b_/src/solver.rs
+462 27662
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/mem/manually_drop.rs
+71 28269
+fe=/tmp/bench._bdec7b_/src/solver.rs
+462 98638
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 126300 42100
+0 15807
+fe=/tmp/bench._bdec7b_/src/solver.rs
+112 15807
+113 31614
+114 15807 0 15807
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/mem/manually_drop.rs
+71 15807
+fe=/tmp/bench._bdec7b_/src/solver.rs
+462 31614
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/mem/manually_drop.rs
+71 26293 0 0 1 0 0 1
+fe=/tmp/bench._bdec7b_/src/solver.rs
+462 94686
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 126300 42100
+0 13393
+fe=/tmp/bench._bdec7b_/src/solver.rs
+112 13393
+113 26786
+114 13393 0 13393
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/mem/manually_drop.rs
+71 13393
+fe=/tmp/bench._bdec7b_/src/solver.rs
+462 26786
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/mem/manually_drop.rs
+71 28707 0 0 1 0 0 1
+fe=/tmp/bench._bdec7b_/src/solver.rs
+462 99514
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 126300 42100
+0 17912
+fe=/tmp/bench._bdec7b_/src/solver.rs
+112 17912
+113 35824
+114 17912 0 17912
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/mem/manually_drop.rs
+71 17912
+fe=/tmp/bench._bdec7b_/src/solver.rs
+462 35824
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/mem/manually_drop.rs
+71 24188
+fe=/tmp/bench._bdec7b_/src/solver.rs
+462 90476 0 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 126300 42100
+0 10011
+fe=/tmp/bench._bdec7b_/src/solver.rs
+112 10011
+113 20022
+114 10011 0 10011
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/mem/manually_drop.rs
+71 10011
+fe=/tmp/bench._bdec7b_/src/solver.rs
+462 20022
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/mem/manually_drop.rs
+71 32089
+fe=/tmp/bench._bdec7b_/src/solver.rs
+462 106278
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 126300 42100 0 1 0 0 1
+0 7144
+fe=/tmp/bench._bdec7b_/src/solver.rs
+112 7144
+113 14288
+114 7144 0 7144
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/mem/manually_drop.rs
+71 7144
+fe=/tmp/bench._bdec7b_/src/solver.rs
+462 14288
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/mem/manually_drop.rs
+71 34956
+fe=/tmp/bench._bdec7b_/src/solver.rs
+462 112012
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 126300 42100
+0 9382
+fe=/tmp/bench._bdec7b_/src/solver.rs
+112 9382
+113 18764
+114 9382 0 9382
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/mem/manually_drop.rs
+71 9382
+fe=/tmp/bench._bdec7b_/src/solver.rs
+462 18764
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/mem/manually_drop.rs
+71 32718 0 0 1 0 0 1
+fe=/tmp/bench._bdec7b_/src/solver.rs
+462 107536
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 126300 42100
+0 783
+fe=/tmp/bench._bdec7b_/src/solver.rs
+112 783
+113 1566
+114 783 0 783
+0 1566
+462 783
+0 82634 0 0 1 0 0 1
+462 41317
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 126300 42100
+0 5407
+fe=/tmp/bench._bdec7b_/src/solver.rs
+112 5407
+113 10814
+114 5407 0 5407
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 126300 42100
+0 4806
+fe=/tmp/bench._bdec7b_/src/solver.rs
+112 4806
+113 9612
+114 4806 0 4806 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 126300 42100
+0 4341
+fe=/tmp/bench._bdec7b_/src/solver.rs
+112 4341
+113 8682
+114 4341 0 4341
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 126300 42100
+0 37264
+fe=/tmp/bench._bdec7b_/src/solver.rs
+112 37264
+113 74528
+114 37264 0 37264
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 126300 42100 0 1 0 0 1
+0 17540
+fe=/tmp/bench._bdec7b_/src/solver.rs
+112 17540
+113 35080
+114 17540 0 17540
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 126300 42100
+0 10046
+fe=/tmp/bench._bdec7b_/src/solver.rs
+112 10046
+113 20092
+114 10046 0 10046
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 126300 42100 0 1 0 0 1
+0 32417
+fe=/tmp/bench._bdec7b_/src/solver.rs
+112 32417
+113 64834
+114 32417 0 32417
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 126300 42100
+0 19715
+fe=/tmp/bench._bdec7b_/src/solver.rs
+112 19715
+113 39430
+114 19715 0 19715
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 126300 42100
+0 16138
+fe=/tmp/bench._bdec7b_/src/solver.rs
+112 16138
+113 32276
+114 16138 0 16138
+0 64552
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/mem/manually_drop.rs
+71 16138
+fe=/tmp/bench._bdec7b_/src/solver.rs
+462 32276
+0 103848 0 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/mem/manually_drop.rs
+71 25962
+fe=/tmp/bench._bdec7b_/src/solver.rs
+462 51924
+0 126300
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/convert/num.rs
+53 42100
+fe=/tmp/bench._bdec7b_/src/solver.rs
+462 84200
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 126300 42100 0 1 0 0 1
+0 19185
+fe=/tmp/bench._bdec7b_/src/solver.rs
+112 19185
+113 38370
+114 19185 0 19185
+462 84200
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 126300 42100
+0 23010
+fe=/tmp/bench._bdec7b_/src/solver.rs
+112 23010
+113 46020
+114 23010 0 23010
+462 84200 0 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 126300 42100
+0 13631
+fe=/tmp/bench._bdec7b_/src/solver.rs
+112 13631
+113 27262
+114 13631 0 13631
+334 13631
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/mem/manually_drop.rs
+71 13631
+fe=/tmp/bench._bdec7b_/src/solver.rs
+462 27262
+334 28469
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/mem/manually_drop.rs
+71 28469
+fe=/tmp/bench._bdec7b_/src/solver.rs
+462 141138 0 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 126300 42100
+0 14541
+fe=/tmp/bench._bdec7b_/src/solver.rs
+112 14541
+113 29082
+114 14541 0 14541
+334 14541
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/mem/manually_drop.rs
+71 14541
+fe=/tmp/bench._bdec7b_/src/solver.rs
+462 29082
+334 27559
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/mem/manually_drop.rs
+71 27559
+fe=/tmp/bench._bdec7b_/src/solver.rs
+462 139318
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 126300 42100 0 1 0 0 1
+0 6130
+fe=/tmp/bench._bdec7b_/src/solver.rs
+112 6130
+113 12260
+114 6130 0 6130
+334 6130
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/mem/manually_drop.rs
+71 6130
+fe=/tmp/bench._bdec7b_/src/solver.rs
+462 12260
+334 35970
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/mem/manually_drop.rs
+71 35970
+fe=/tmp/bench._bdec7b_/src/solver.rs
+462 156140
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 126300 42100
+0 5589
+fe=/tmp/bench._bdec7b_/src/solver.rs
+112 5589
+113 11178
+114 5589 0 5589
+334 5589
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/mem/manually_drop.rs
+71 5589
+fe=/tmp/bench._bdec7b_/src/solver.rs
+462 11178
+334 36511 0 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/mem/manually_drop.rs
+71 36511
+fe=/tmp/bench._bdec7b_/src/solver.rs
+462 157222
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 126300 42100
+0 1008
+fe=/tmp/bench._bdec7b_/src/solver.rs
+112 1008
+113 2016
+114 1008 0 1008
+334 1008
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/mem/manually_drop.rs
+71 1008
+fe=/tmp/bench._bdec7b_/src/solver.rs
+462 2016
+334 41092 0 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/mem/manually_drop.rs
+71 41092
+fe=/tmp/bench._bdec7b_/src/solver.rs
+462 166384
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 126300 42100
+0 11003
+fe=/tmp/bench._bdec7b_/src/solver.rs
+112 11003
+113 22006
+114 11003 0 11003
+334 11003
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/mem/manually_drop.rs
+71 11003
+fe=/tmp/bench._bdec7b_/src/solver.rs
+462 22006
+334 31097
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/mem/manually_drop.rs
+71 31097
+fe=/tmp/bench._bdec7b_/src/solver.rs
+462 146394 0 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 126300 42100
+0 4742
+fe=/tmp/bench._bdec7b_/src/solver.rs
+112 4742
+113 9484
+114 4742 0 4742
+387 18968 9484 9484
+388 14226 4742
+387 149432 74716 74716 0 0 1
+388 112074 37358
+
+fl=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ops/function.rs
+fn=libsolver::solver::Sudoku::filled
+294 8 6 0 2 0 0 2
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+2462 13 0 0 1 0 0 1
+fi=/tmp/bench._bdec7b_/src/solver.rs
+392 1 1
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ops/function.rs
+
+fl=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/std/src/sys/pal/unix/alloc.rs
+fn=__rdl_dealloc
+42 29 29
+cob=/nix/store/ddwyrxif62r8n6xclvskjyy6szdhvj60-glibc-2.39-5/lib/libc.so.6
+cfi=???
+cfn=free
+calls=38 0 
+42 2410 694 391 10 0 0 9
+
+fl=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/adapters/flatten.rs
+fn=<core::iter::adapters::map::Map<I,F> as core::iter::traits::iterator::Iterator>::try_fold
+510 195 65 0 1 0 0 1
+0 64 64
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/non_null.rs
+1796 64
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+162 64
+0 112 56
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/option.rs
+606 56 56
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/bool.rs
+34 56
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/option.rs
+606 14 14
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/bool.rs
+34 14
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/traits/iterator.rs
+0 15
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/adapters/enumerate.rs
+87 30 0 15
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/non_null.rs
+1796 15
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+162 15
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/adapters/fuse.rs
+374 30 10 0 1 0 0 1
+0 10 10
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ptr/non_null.rs
+1796 10
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+162 10
+0 18 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/option.rs
+606 9 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/bool.rs
+34 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/option.rs
+606 2 2
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/bool.rs
+34 2
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/adapters/flatten.rs
+516 1 0 1 1 0 0 1
+518 3 1 0 1 0 0 1
+521 2 0 1
+0 1 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/adapters/map.rs
+123 2 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+109 165 0 55 1 0 0 1
+0 55
+fi=/tmp/bench._bdec7b_/src/solver.rs
+411 495
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/adapters/enumerate.rs
+87 165 0 55
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+109 35 0 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ops/control_flow.rs
+111 12
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+109 27 0 9 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/option.rs
+1568 9 0 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/slice/iter/macros.rs
+109 18 0 9
+fi=/tmp/bench._bdec7b_/src/solver.rs
+411 72 0 0 1 0 0 1
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/adapters/enumerate.rs
+87 27 0 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ops/control_flow.rs
+123 18 0 9
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/adapters/flatten.rs
+0 9 0 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/adapters/map.rs
+123 18 9
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ops/control_flow.rs
+123 110 0 55
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/adapters/flatten.rs
+0 55 0 55
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/adapters/map.rs
+123 110 55
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/iter/adapters/flatten.rs
+
+fl=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/std/src/rt.rs
+fn=std::rt::lang_start_internal
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ops/function.rs
+cfn=std::rt::lang_start::{{closure}}
+calls=1 166 
+284 11772512 1937524 759378 250 1 60 247 0 43
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/std/src/rt.rs
+
+fn=std::rt::lang_start::{{closure}}
+cfi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/std/src/sys_common/backtrace.rs
+cfn=std::sys_common::backtrace::__rust_begin_short_backtrace
+calls=1 151 
+166 11772512 1937524 759378 250 1 60 247 0 43
+
+fl=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/std/src/sys_common/backtrace.rs
+fn=std::sys_common::backtrace::__rust_begin_short_backtrace
+fi=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/core/src/ops/function.rs
+cfi=/home/jalil/.local/share/cargo/registry/src/index.crates.io-6f17d22bba15001f/iai-callgrind-0.10.2/src/macros.rs
+cfn=dfs_iai::main
+calls=1 346 
+250 11772512 1937524 759378 250 1 60 247 0 43
+fe=/rustc/7cf61ebde7b22796c69757901dd346d0fe70bd97/library/std/src/sys_common/backtrace.rs
+
+ob=???
+fl=???
+fn=0x000000000488a6f0
+0 2 1
+cob=/nix/store/ddwyrxif62r8n6xclvskjyy6szdhvj60-glibc-2.39-5/lib/libc.so.6
+cfi=???
+cfn=__memcpy_avx_unaligned_erms
+calls=50 0 
+0 22 6 4 1 0 1 0 0 1
+
+ob=/nix/store/ddwyrxif62r8n6xclvskjyy6szdhvj60-glibc-2.39-5/lib/libc.so.6
+fl=???
+fn=alloc_perturb
+0 8 4
+
+fn=_int_free
+0 1379 417 150 1 0 0 1
+cfn=_int_free_merge_chunk
+calls=1 0 
+0 100 31 18 9 0 0 8
+0 261 29 116
+
+fn=(below main)
+cob=/tmp/bench._bdec7b_/target/release/deps/dfs_iai-6ca19a207c52434a
+cfi=???
+cfn=main
+calls=1 0 
+0 11772512 1937524 759378 250 1 60 247 0 43
+
+fn=_int_free_merge_chunk
+0 34 6 6 3 0 0 3
+cfn=_int_free_create_chunk
+calls=1 0 
+0 20 5 5 2 0 0 1
+0 9 5
+cfn=_int_free_maybe_consolidate.part.0
+calls=1 0 
+0 32 14 7 3 0 0 3
+0 5 1 0 1 0 0 1
+
+fn=_int_malloc
+0 233 39 18 0 0 1
+cfn=alloc_perturb
+calls=19 0 
+0 8 4
+0 36 2 6 0 0 2 0 0 2
+
+fn=free
+0 580 145 87
+cfn=_int_free
+calls=45 0 
+0 1685 462 275 10 0 0 9
+0 145 87 29
+
+fn=_int_free_maybe_consolidate.part.0
+0 32 14 7 3 0 0 3
+
+fn=__libc_start_main@@GLIBC_2.34
+cfn=(below main)
+calls=1 0 
+0 11772512 1937524 759378 250 1 60 247 0 43
+
+fn=malloc
+0 1129 317 172 0 0 1 0 0 1
+cfn=_int_malloc
+calls=14 0 
+0 132 22 12 0 0 1 0 0 1
+0 7 1
+
+fn=_int_realloc
+0 181 45 25 1 0 1
+cfn=_int_malloc
+calls=2 0 
+0 145 23 12 0 0 2 0 0 1
+0 17 2 1
+cob=???
+cfi=???
+cfn=0x000000000488a6f0
+calls=2 0 
+0 24 7 4 1 0 1 0 0 1
+0 4 0 1
+cfn=_int_free
+calls=2 0 
+0 55 15 9
+0 61 0 9 2 0 3 2 0 3
+
+fn=_int_free_create_chunk
+0 20 5 5 2 0 0 1
+
+fn=realloc
+0 1375 322 194 0 0 1
+cfn=_int_realloc
+calls=5 0 
+0 487 92 61 4 0 7 2 0 5
+0 48 8
+
+fn=__memcpy_avx_unaligned_erms
+0 22 6 4 1 0 1 0 0 1
+
+totals: 11772512 1937524 759378 250 1 60 247 0 43

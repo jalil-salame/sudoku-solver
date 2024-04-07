@@ -10,12 +10,12 @@ Generated using `cargo bench`
 
 <!--- FIXME: figure out how to include results -->
 ```
-{{ insert_file(run.rev, "iai/callgrind.solve_sudoku.first.log") | regex_replace("^==\d+== ", "") }}
+{{ insert_file(run.rev, "iai/callgrind.solve_sudoku.first.log") | regex_replace("^==\d+== ", "") -}}
 ```
 {%- elif bench.name == "Solve 10" -%}
 ```console
 $ head $SUDOKU17 | cargo run --quiet --release -- -
-{{ insert_file(run.rev, "Solve 10/run.log") }}
+{{ insert_file(run.rev, "Solve 10/run.log") -}}
 ```
 {%- endif -%}
 {% endmacro %}
