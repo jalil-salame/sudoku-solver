@@ -36,11 +36,17 @@
           path = ./.;
           name = "sudoku-solver";
         };
-        hooks.typos.enable = true;
-        hooks.alejandra.enable = true;
-        hooks.clippy.enable = true;
-        hooks.rustfmt.enable = true;
-        hooks.cargo-check.enable = true;
+        hooks = {
+          typos = {
+            enable = true;
+            types = ["python" "rust" "nix" "toml" "markdown"];
+          };
+          alejandra.enable = true;
+          rustfmt.enable = true;
+          # do not work offline
+          # clippy.enable = true;
+          # cargo-check.enable = true;
+        };
       };
     });
     formatter = forEachSystem ({pkgs, ...}: pkgs.alejandra);
