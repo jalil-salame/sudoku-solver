@@ -1,22 +1,25 @@
 import math
 import os
 import re
-from os.path import isabs
 import shutil
 import subprocess
 from dataclasses import dataclass
+from os.path import isabs
 from pathlib import Path
-from sys import flags
 from tempfile import TemporaryDirectory
 from typing import Any, Self
 
 import click
+import matplotlib.pyplot as plt
+import seaborn as sns
 import toml
 from jinja2 import Environment, FileSystemLoader, select_autoescape
+from pandas import DataFrame
 
 RUN: bool = False
 CONFIG: dict[str, Any] = {}
 OUTDIR: Path = Path("analysis").resolve()
+ASSETDIR: Path = OUTDIR / "assets"
 DATADIR: Path = OUTDIR / "data"
 TMPL_DIR: Path = OUTDIR / "templates"
 RUN_TEMPLATE: Path = TMPL_DIR / "run_template.jinja2.md"
@@ -28,6 +31,48 @@ def assert_type_of[T](var: str, value: Any, typ: type[T]) -> T:
             f"expected {var} to be a {typ} but it was a {type(value)} instead"
         )
     return value
+
+
+# LL (Last Level (usually L3 in modern computers))
+@dataclass
+class IaiData:
+    instr_count: int
+    l1_instr_miss: int
+    ll_instr_miss: int
+    data_reads: int
+    l1_data_read_miss: int
+    ll_data_read_miss: int
+    data_writes: int
+    l1_data_write_miss: int
+    ll_data_write_miss: int
+
+    @classmethod
+    def from_file(cls, data: Path) -> Self:
+        with data.open("rt") as fp:
+            events = None
+            summary = None
+            for line in fp:
+                if line.startswith("events: "):
+                    events = line.lstrip("events: ")
+                if line.startswith("summary: "):
+                    summary = line.lstrip("summary: ")
+            if events is None or summary is None:
+                not_found = "events" if events is None else "summary"
+                raise ValueError(f"didn't find {not_found} in {data.as_posix()}")
+            events = events.strip().split(" ")
+            summary = [int(val) for val in summary.strip().split(" ")]
+            event_count = dict(zip(events, summary, strict=True))
+            return cls(
+                event_count["Ir"],
+                event_count["I1mr"],
+                event_count["ILmr"],
+                event_count["Dr"],
+                event_count["D1mr"],
+                event_count["DLmr"],
+                event_count["Dw"],
+                event_count["D1mw"],
+                event_count["DLmw"],
+            )
 
 
 @dataclass
@@ -215,6 +260,37 @@ def set_globals(run: bool, config: Path) -> None:
     BENCHES = get_benches()
 
 
+def gather_iai_data() -> DataFrame:
+    res = dict()
+    for run in RUNS:
+        iai_data = DATADIR / run.rev / "iai" / "callgrind.solve_sudoku.first.out"
+        if not iai_data.exists():
+            print(f"[WARN]: couldn't find {iai_data.as_posix()}")
+            continue
+        data = IaiData.from_file(iai_data)
+        res.setdefault("revision", []).append(run.rev)
+        res.setdefault("instr count", []).append(data.instr_count)
+        res.setdefault("instr L1 miss", []).append(data.l1_instr_miss)
+        res.setdefault("instr LL miss", []).append(data.ll_instr_miss)
+        res.setdefault("data fetched", []).append(data.data_reads)
+        res.setdefault("L1 fetch miss", []).append(data.l1_data_read_miss)
+        res.setdefault("LL fetch miss", []).append(data.ll_data_read_miss)
+        res.setdefault("data written", []).append(data.data_writes)
+        res.setdefault("L1 write miss", []).append(data.l1_data_write_miss)
+        res.setdefault("LL write miss", []).append(data.ll_data_write_miss)
+    return DataFrame(res)
+
+
+def generate_iai_plot(iai_data: DataFrame) -> None:
+    sns.set_theme(context="notebook", style="whitegrid", rc={"figure.figsize": (9, 5)})
+    ax = sns.lineplot(iai_data, x="revision", y="instr count", errorbar=None)
+    ax.set_ylabel("Instruction count")
+    ax.set_xlabel("Git commit")
+    ax.set_title("Instruction count over time")
+    plt.savefig(ASSETDIR / "iai_data_progression.svg")
+    plt.close()
+
+
 @click.command()
 @click.option("--repo", type=str, default=None)
 @click.option("--config", type=Path, default=OUTDIR / "config.toml")
@@ -233,6 +309,7 @@ def main(repo: str | None, config: Path, run: bool, rerun_benches: bool) -> None
     generate_report(
         templates=[f"{ix:0{pad}}-{run.rev}.jinja2.md" for ix, run in enumerate(RUNS)]
     )
+    generate_iai_plot(gather_iai_data())
 
 
 if __name__ == "__main__":

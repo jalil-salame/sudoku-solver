@@ -60,7 +60,7 @@
           alejandra
           cargo-flamegraph
           valgrind-light
-          (python312.withPackages (ps: with ps; [jinja2 click toml types-toml]))
+          (python312.withPackages (ps: with ps; [jinja2 click toml types-toml seaborn pandas]))
         ];
         SUDOKU17 = "${self.packages.${system}.sudoku17}";
         IAI_CALLGRIND_RUNNER = "${self.packages.${system}.iai-callgrind-runner}/bin/iai-callgrind-runner";
